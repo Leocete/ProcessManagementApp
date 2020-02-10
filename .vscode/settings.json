@@ -1,13 +1,17 @@
 {
+  // Editor
   "editor.formatOnSave": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  // Eslint
+  "eslint.enable": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
-  "editor.renderWhitespace": "boundary"
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": true
-  // }
+  "eslint.workingDirectories": ["./client", "./server"]
 }
