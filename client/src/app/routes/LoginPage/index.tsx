@@ -11,64 +11,26 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import 'styles/pages/_loginPage.scss';
+import './_styles.scss';
 
 import Copyright from 'components/Copyright';
 
-const useStyles = makeStyles(theme => {
-  console.log(theme);
-
-  return {
-    root: {
-      height: '100vh',
-    },
-    image: {
-      backgroundImage: 'url(./../../public/login-img.jpg)',
-      backgroundRepeat: 'no-repeat',
-      backgroundColor: theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    },
-    paper: {
-      margin: theme.spacing(8, 4),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-  };
-});
-
 const SignInSide = () => {
-  useStyles();
-  // const classes = useStyles();
-
   return (
-    <Grid container component="main" className="login-root">
+    <Grid container component="main" className="login">
       <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className="login-image" />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className="paper">
+      <Grid item xs={false} sm={4} md={7} className="login__image" />
+      <Grid item xs={12} sm={8} md={5} className="login__form__wrapper" component={Paper} elevation={6} square>
+        <div className="login__form__paper">
           <Avatar className="avatar">
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className="login-form" noValidate>
+          <form className="login__form" noValidate>
             <TextField
-              variant="outlined"
+              variant="filled"
               margin="normal"
               required
               fullWidth
@@ -79,7 +41,7 @@ const SignInSide = () => {
               autoFocus
             />
             <TextField
-              variant="outlined"
+              variant="filled"
               margin="normal"
               required
               fullWidth
@@ -90,7 +52,7 @@ const SignInSide = () => {
               autoComplete="current-password"
             />
             <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-            <Button type="submit" fullWidth variant="contained" color="primary" className="login-submit">
+            <Button type="submit" fullWidth variant="contained" className="login__form__submit">
               Sign In
             </Button>
             <Grid container>
