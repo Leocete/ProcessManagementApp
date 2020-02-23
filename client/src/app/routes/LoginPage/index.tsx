@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +15,7 @@ import './_styles.scss';
 
 import Copyright from 'components/Copyright';
 
-const SignInSide = () => {
+const SignInSide: React.SFC<Props> = (props: Props) => {
   return (
     <Grid container component="main" className="login">
       <CssBaseline />
