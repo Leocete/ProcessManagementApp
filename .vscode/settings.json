@@ -2,9 +2,13 @@
   // Editor
   "editor.formatOnSave": true,
   "editor.renderWhitespace": "boundary",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+
   // Eslint
   "eslint.enable": true,
   "eslint.validate": [
