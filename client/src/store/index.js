@@ -1,6 +1,12 @@
 import { createStore } from 'redux';
+import { createBrowserHistory } from 'history';
+import reducers, { countReducer } from '../reducers/index';
 
-export default configureStore = () => {
-  const store = createStore(countReducer);
+const history = createBrowserHistory();
+
+const configureStore = () => {
+  const store = createStore(reducers(history));
   return store;
 };
+
+export { configureStore, history };

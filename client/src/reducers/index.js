@@ -1,3 +1,11 @@
+import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router';
+
+export default history =>
+  combineReducers({
+    router: connectRouter(history),
+  });
+
 const countReducer = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
@@ -8,3 +16,5 @@ const countReducer = (state = 0, action) => {
       return state;
   }
 };
+
+export { countReducer };

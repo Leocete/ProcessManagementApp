@@ -15,7 +15,7 @@ import './_styles.scss';
 
 import Copyright from 'components/Copyright';
 
-const SignInSide: React.SFC<Props> = (props: Props) => {
+const SignInSide = () => {
   return (
     <Grid container component="main" className="login">
       <CssBaseline />
