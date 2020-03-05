@@ -16,6 +16,7 @@
     background-color: $main-background-color;
     color: $white;
     display: flex;
+    justify-content: center;
     align-items: center;
 
     .login__form__paper {
@@ -34,13 +35,17 @@
       width: 100%; // Fix IE 11 issue.
       margin-top: 5px;
 
+      .login__form__remember-me {
+        color: $white;
+      }
+
       .login__form__submit {
         margin-bottom: 7px;
         background-color: $main-button-color;
       }
 
       .login__form__additional-actions {
-        color: #ffffff;
+        color: $white;
       }
     }
   }

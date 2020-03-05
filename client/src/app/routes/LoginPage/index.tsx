@@ -51,7 +51,10 @@ const SignInSide = () => {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
+            <FormControlLabel
+              control={<Checkbox value="remember" className="login__form__remember-me" />}
+              label="Remember me"
+            />
             <Button type="submit" fullWidth variant="contained" className="login__form__submit">
               Sign In
             </Button>
