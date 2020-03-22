@@ -10,7 +10,7 @@ export interface UserSignIn extends Action {
 
 export interface UserSignInSuccess extends Action {
   type: ACTION_USER_SIGN_IN_SUCCESS;
-  user: UserModel[];
+  user: UserModel;
 }
 
 export interface UserSignInError extends Action {
@@ -22,4 +22,14 @@ export interface UserSignInError extends Action {
 export const signIn = (user: UserCredentials): void => {
   type: ACTION_USER_SIGN_IN;
   payload: user;
+};
+
+export const signInSuccess = (authUser: UserModel): void => {
+  type: ACTION_USER_SIGN_IN_SUCCESS;
+  user: authUser;
+};
+
+export const signInError = (errorMessage: string): void => {
+  type: ACTION_USER_SIGN_IN_ERROR;
+  errorMessage: errorMessage;
 };

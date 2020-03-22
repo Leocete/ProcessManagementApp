@@ -1,5 +1,4 @@
 /* Login Page */
-
 export const ACTION_USER_SIGN_IN = 'USER_SIGN_IN';
 export type ACTION_USER_SIGN_IN = typeof ACTION_USER_SIGN_IN;
 
