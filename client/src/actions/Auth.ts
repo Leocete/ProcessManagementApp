@@ -33,3 +33,5 @@ export const signInError = (errorMessage: string): void => {
   type: ACTION_USER_SIGN_IN_ERROR;
   errorMessage: errorMessage;
 };
+
+export type AuthActions = UserSignIn | UserSignInSuccess | UserSignInError;

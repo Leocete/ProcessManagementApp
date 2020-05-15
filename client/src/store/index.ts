@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import { createBrowserHistory } from 'history';
-import reducers, { countReducer } from '../reducers/index';
+import reducers from '../reducers/index';
 
 const history = createBrowserHistory();
 
