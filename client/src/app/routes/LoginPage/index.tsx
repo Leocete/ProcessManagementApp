@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,8 +14,14 @@ import Typography from '@material-ui/core/Typography';
 import './_styles.scss';
 
 import Copyright from 'components/Copyright';
+import { signIn } from 'actions/Auth';
 
 const SignInSide: React.FC = (): ReactElement => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  console.log(email);
+
   return (
     <Grid container component="main" className="login">
       <CssBaseline />
@@ -28,7 +34,14 @@ const SignInSide: React.FC = (): ReactElement => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className="login__form" noValidate>
+          <form
+            className="login__form"
+            noValidate
+            onSubmit={(e): void => {
+              e.preventDefault();
+              signIn({ email, password });
+            }}
+          >
             <TextField
               variant="filled"
               margin="normal"
@@ -39,6 +52,7 @@ const SignInSide: React.FC = (): ReactElement => {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={(event): void => setEmail(event.target.value)}
             />
             <TextField
               variant="filled"
@@ -50,6 +64,7 @@ const SignInSide: React.FC = (): ReactElement => {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(event): void => setPassword(event.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" className="login__form__remember-me" />}
