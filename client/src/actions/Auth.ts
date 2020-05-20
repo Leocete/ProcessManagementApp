@@ -6,7 +6,7 @@ import { ACTION_USER_SIGN_IN, ACTION_USER_SIGN_IN_SUCCESS, ACTION_USER_SIGN_IN_E
 /********** Action Interfaces **********/
 export interface UserSignIn extends Action {
   type: ACTION_USER_SIGN_IN;
-  payload: object;
+  credentials: object;
 }
 
 export interface UserSignInSuccess extends Action {
@@ -19,10 +19,12 @@ export interface UserSignInError extends Action {
   errorMessage: string;
 }
 
-/********** Actions **********/
+export type AuthActions = UserSignIn | UserSignInSuccess | UserSignInError;
+
+/********** Action Creators **********/
 export const signIn = (user: UserCredentials): AuthActions => ({
   type: ACTION_USER_SIGN_IN,
-  payload: user,
+  credentials: user,
 });
 
 export const signInSuccess = (authUser: UserModel): AuthActions => ({
@@ -34,5 +36,3 @@ export const signInError = (errorMessage: string): AuthActions => ({
   type: ACTION_USER_SIGN_IN_ERROR,
   errorMessage: errorMessage,
 });
-
-export type AuthActions = UserSignIn | UserSignInSuccess | UserSignInError;
