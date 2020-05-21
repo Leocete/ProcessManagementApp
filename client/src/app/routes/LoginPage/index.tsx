@@ -15,12 +15,12 @@ import './_styles.scss';
 
 import Copyright from 'components/Copyright';
 import { signIn } from 'actions/Auth';
+import { AuthReducerState } from 'interfaces/Auth';
+import { connect } from 'react-redux';
 
 const SignInSide: React.FC = (): ReactElement => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  console.log(email);
 
   return (
     <Grid container component="main" className="login">
@@ -95,4 +95,6 @@ const SignInSide: React.FC = (): ReactElement => {
   );
 };
 
-export default SignInSide;
+const mapStateToProps = ({ auth }: { auth: AuthReducerState }): AuthReducerState => auth;
+
+export default connect(mapStateToProps, { signIn })(SignInSide);
