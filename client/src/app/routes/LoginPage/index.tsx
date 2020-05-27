@@ -16,11 +16,12 @@ import './_styles.scss';
 import Copyright from 'components/Copyright';
 import { signIn } from 'actions/Auth';
 import { AuthReducerState } from 'interfaces/Auth';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 const SignInSide: React.FC = (): ReactElement => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   return (
     <Grid container component="main" className="login">
@@ -39,7 +40,8 @@ const SignInSide: React.FC = (): ReactElement => {
             noValidate
             onSubmit={(e): void => {
               e.preventDefault();
-              signIn({ email, password });
+              dispatch(signIn({ email, password }));
+              // signIn({ email, password });
             }}
           >
             <TextField
