@@ -1,4 +1,4 @@
-import { call, put, takeEvery, all, fork } from 'redux-saga/effects';
+import { call, put, takeEvery, all, fork, StrictEffect } from 'redux-saga/effects';
 import { ACTION_USER_SIGN_IN } from '../constants/ActionTypes';
 import UserCredentials from 'models/UserCredentials';
 import { postData } from 'utils/requestApi';
@@ -15,7 +15,7 @@ const signInUserWithEmailPasswordRequest = async (email: string, password: strin
 };
 
 /* Worker Saga */
-function* checkUserCredentials(action: UserSignIn): any {
+function* checkUserCredentials(action: UserSignIn): Generator<StrictEffect> {
   // const { email, password }: UserCredentials = action.credentials;
   console.log(action);
   try {

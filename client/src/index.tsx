@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
@@ -9,7 +9,7 @@ import LoginPage from './app/routes/LoginPage';
 
 export const store = configureStore();
 
-const App = () => (
+const App: React.FC = (): ReactElement => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
